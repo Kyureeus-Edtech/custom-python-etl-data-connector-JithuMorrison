@@ -1,20 +1,19 @@
-from pymongo import MongoClient
-import os
-from dotenv import load_dotenv
+from extract import fetch_greynoise
+from transform import transform_data
+from load import save_result
 
-# Load variables from .env
-load_dotenv()
+def run_etl(ip_list):
+    for ip in ip_list:
+        try:
+            print(f"Processing IP: {ip}")
+            raw_data = fetch_greynoise(ip)
+            doc = transform_data(ip, raw_data)
+            save_result(doc)
+            print(f"Successfully saved IP: {ip}")
+        except Exception as e:
+            print(f"Error processing IP {ip}: {e}")
 
-MONGO_URI = os.getenv("MONGO_URI")
-COLLECTION_NAME = os.getenv("COLLECTION_NAME")
-RIOT_COLLECTION = os.getenv("RIOT")
-
-if not all([MONGO_URI, COLLECTION_NAME, RIOT_COLLECTION]):
-    raise ValueError("Missing one or more required environment variables.")
-
-client = MongoClient(MONGO_URI)
-db = client[COLLECTION_NAME]
-riot = db[RIOT_COLLECTION]
-
-def save_result(ip, data):
-    riot.insert_one({"ip": ip, "result": data})
+if __name__ == "__main__":
+    ips = input("Enter IP addresses (comma-separated): ").split(",")
+    ips = [ip.strip() for ip in ips if ip.strip()]
+    run_etl(ips)
