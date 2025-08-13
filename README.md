@@ -29,6 +29,7 @@ It is designed with error handling, secure authentication, and best practices fo
 1. Setting Up the Connector Environment
    a. Chose GreyNoise API: Chose and understood its Base URL, Endpoints, and Authentication.
    b. Understood the API Documentation: Focus on headers, query params, pagination, rate limits, and response structure.
+   ![alt text](image-3.png)
 
 2. Secure API Authentication Using Environment Variables
    a. Created a `.env` File Locally: Stored API url.
@@ -42,6 +43,7 @@ It is designed with error handling, secure authentication, and best practices fo
 4. MongoDB Collection Strategy
    Used one collection per connector.
    Storing timestamps to support audits or updates.
+   ![alt text](image-1.png)
 
 5. Iterative Testing & Validation
    Tested for invalid responses, empty payloads, rate limits, and connectivity errors.
@@ -52,6 +54,7 @@ It is designed with error handling, secure authentication, and best practices fo
    a. Used a Central Git Repository: Cloned the shared repo and created a new branch in my name.
    b. Ignored Secrets: Added `.env` to `.gitignore` before the first commit.
    c. Push and Document: Wrote README.md with endpoint details, API usage, and example output.
+   ![alt text](image-2.png)
 
 ---
 
