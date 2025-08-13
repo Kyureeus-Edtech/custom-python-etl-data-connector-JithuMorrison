@@ -28,7 +28,7 @@ It is designed with error handling, secure authentication, and best practices fo
 
 1. Setting Up the Connector Environment
    a. Chose GreyNoise API: Chose and understood its Base URL, Endpoints, and Authentication.
-   b. Understood the API Documentation: Focus on headers, query params, pagination, rate limits, and response structure.
+   b. Understood the API Documentation: Focus on headers, query params, pagination, rate limits, and response structure.\\
    ![alt text](image-3.png)
 
 2. Secure API Authentication Using Environment Variables
@@ -42,7 +42,7 @@ It is designed with error handling, secure authentication, and best practices fo
 
 4. MongoDB Collection Strategy
    Used one collection per connector.
-   Storing timestamps to support audits or updates.
+   Storing timestamps to support audits or updates.\\
    ![alt text](image-1.png)
 
 5. Iterative Testing & Validation
